@@ -3,16 +3,16 @@
 
 #define MAX_SIZE 100
 
-float calculateMean(int arr[], int size) {
-    int sum = 0;
+float calculateMean(float arr[], int size) {
+    float sum = 0;
     int i;
     for (i = 0; i < size; i++) {
         sum += arr[i];
     }
-    return (float)sum / size;
+    return sum / size;
 }
 
-float calculateVariance(int arr[], int size, float mean) {
+float calculateVariance(float arr[], int size, float mean) {
     float variance = 0;
     int i;
     for (i = 0; i < size; i++) {
@@ -26,23 +26,23 @@ float calculateStandardDeviation(float variance) {
 }
 
 int main() {
-    int numbers[MAX_SIZE];
+    float numbers[MAX_SIZE];
     int size, i;
 
     printf("Please enter the number of digits: ");
     scanf("%d", &size);
 
-    printf("Please enter the number of %d:\n", size);
+    printf("Please enter %d numbers:\n", size);
     for (i = 0; i < size; i++) {
-        scanf("%d", &numbers[i]);
+        scanf("%f", &numbers[i]);
     }
 
     float mean = calculateMean(numbers, size);
     float variance = calculateVariance(numbers, size, mean);
     float stdDeviation = calculateStandardDeviation(variance);
 
-    printf("average: %.2f\n", mean);
-    printf("Dispersion: %.2f\n", variance);
+    printf("Average: %.2f\n", mean);
+    printf("Variance: %.2f\n", variance);
     printf("Standard Deviation: %.2f\n", stdDeviation);
 
     return 0;
